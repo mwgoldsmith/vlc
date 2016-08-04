@@ -22,7 +22,6 @@ aclocal.m4
 ChangeLog
 compile
 config.status
-config.h*
 config.log
 configure
 doltcompile
@@ -32,7 +31,6 @@ libtool
 Makefile
 Makefile.in
 stamp-*
-vlc
 vlc.exe
 qvlc
 rvlc
@@ -49,7 +47,9 @@ patches/*
 include/vlc/libvlc_version.h
 
 # Ignore build dirs
-build*
 contrib-*
 install-*
 
+.vs/
+*.opendb
+*.db
