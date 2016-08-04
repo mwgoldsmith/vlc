@@ -109,7 +109,7 @@ int WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance,
     if (wargv == NULL)
         return 1;
 
-    char *argv[argc + 3];
+    char **argv = (char **)malloc((argc + 3) * sizeof(char *));
     BOOL crash_handling = TRUE;
     int j = 0;
     char *lang = NULL;
@@ -190,8 +190,7 @@ int WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance,
         libvlc_release (vlc);
     }
     else
-        MessageBox (NULL, TEXT("VLC media player could not start.\n"
-                    "Either the command line options were invalid or no plugins were found.\n"),
+        MessageBox (NULL, TEXT("VLC media player could not start.\nEither the command line options were invalid or no plugins were found.\n"),
                     TEXT("VLC media player"),
                     MB_OK|MB_ICONERROR);
 
@@ -199,7 +198,9 @@ int WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance,
     for (int i = 0; i < argc; i++)
         free (argv[i]);
 
+    free(argv);
     (void)hInstance; (void)hPrevInstance; (void)lpCmdLine; (void)nCmdShow;
+
     return 0;
 }
 
@@ -218,8 +219,7 @@ static void check_crashdump(void)
         return;
     fclose( fd );
 
-    int answer = MessageBox( NULL, L"Ooops: VLC media player just crashed.\n" \
-    "Would you like to send a bug report to the developers team?",
+    int answer = MessageBox( NULL, L"Ooops: VLC media player just crashed.\nWould you like to send a bug report to the developers team?",
     L"VLC crash reporting", MB_YESNO);
 
     if(answer == IDYES)
@@ -243,20 +243,15 @@ static void check_crashdump(void)
 
                 if( FtpPutFile( ftp, mv_crashdump_path, remote_file,
                             FTP_TRANSFER_TYPE_BINARY, 0) )
-                    MessageBox( NULL, L"Report sent correctly. Thanks a lot " \
-                                "for the help.", L"Report sent", MB_OK);
+                    MessageBox( NULL, L"Report sent correctly. Thanks a lot for the help.", L"Report sent", MB_OK);
                 else
-                    MessageBox( NULL, L"There was an error while "\
-                                "transferring the data to the FTP server.\n"\
-                                "Thanks a lot for the help.",
+                    MessageBox( NULL, L"There was an error while transferring the data to the FTP server.\nThanks a lot for the help.",
                                 L"Report sending failed", MB_OK);
                 InternetCloseHandle(ftp);
             }
             else
             {
-                MessageBox( NULL, L"There was an error while connecting to " \
-                                "the FTP server. "\
-                                "Thanks a lot for the help.",
+                MessageBox( NULL, L"There was an error while connecting to the FTP server. Thanks a lot for the help.",
                                 L"Report sending failed", MB_OK);
                 fprintf(stderr,"Can't connect to FTP server 0x%08lu\n",
                         (unsigned long)GetLastError());
@@ -265,8 +260,7 @@ static void check_crashdump(void)
         }
         else
         {
-              MessageBox( NULL, L"There was an error while connecting to the Internet.\n"\
-                                "Thanks a lot for the help anyway.",
+              MessageBox( NULL, L"There was an error while connecting to the Internet.\nThanks a lot for the help anyway.",
                                 L"Report sending failed", MB_OK);
         }
     }
@@ -302,9 +296,9 @@ LONG WINAPI vlc_exception_filter(struct _EXCEPTION_POINTERS *lpExceptionInfo)
         osvi.dwOSVersionInfoSize = sizeof( OSVERSIONINFO );
         GetVersionEx( &osvi );
 
-        fwprintf( fd, L"[version]\nOS=%d.%d.%d.%d.%ls\nVLC=" VERSION_MESSAGE,
-                osvi.dwMajorVersion, osvi.dwMinorVersion, osvi.dwBuildNumber,
-                osvi.dwPlatformId, osvi.szCSDVersion);
+        fwprintf(fd, L"[version]\nOS=%d.%d.%d.%d.%s\nVLC=%s",
+          osvi.dwMajorVersion, osvi.dwMinorVersion, osvi.dwBuildNumber,
+          osvi.dwPlatformId, osvi.szCSDVersion, VERSION_MESSAGE);
 
         const CONTEXT *const pContext = (const CONTEXT *)
             lpExceptionInfo->ContextRecord;
@@ -330,9 +324,7 @@ LONG WINAPI vlc_exception_filter(struct _EXCEPTION_POINTERS *lpExceptionInfo)
                         pContext->R11,pContext->R12,pContext->R13,
                         pContext->R14,pContext->R15 );
 #else
-        fwprintf( fd, L"\n\n[context]\nEDI:%px\nESI:%px\n" \
-                    "EBX:%px\nEDX:%px\nECX:%px\nEAX:%px\n" \
-                    "EBP:%px\nEIP:%px\nESP:%px\n",
+        fwprintf( fd, L"\n\n[context]\nEDI:%px\nESI:%px\nEBX:%px\nEDX:%px\nECX:%px\nEAX:%px\nEBP:%px\nEIP:%px\nESP:%px\n",
                         pContext->Edi,pContext->Esi,pContext->Ebx,
                         pContext->Edx,pContext->Ecx,pContext->Eax,
                         pContext->Ebp,pContext->Eip,pContext->Esp );
