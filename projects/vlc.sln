@@ -23,6 +23,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app", "vlc\app.vcxproj", "{
 		{F02DCDEA-685D-4440-87C8-BA75003F7279} = {F02DCDEA-685D-4440-87C8-BA75003F7279}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "fourcc_gen", "vlc\fourcc_gen.vcxproj", "{3924EC61-446B-43A4-AE66-A418937D95A5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -99,6 +101,22 @@ Global
 		{90ADB70D-506C-4E84-B24A-C0923FD6BC9D}.ReleaseDLL|Win32.Build.0 = ReleaseDLL|Win32
 		{90ADB70D-506C-4E84-B24A-C0923FD6BC9D}.ReleaseDLL|x64.ActiveCfg = ReleaseDLL|x64
 		{90ADB70D-506C-4E84-B24A-C0923FD6BC9D}.ReleaseDLL|x64.Build.0 = ReleaseDLL|x64
+		{3924EC61-446B-43A4-AE66-A418937D95A5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3924EC61-446B-43A4-AE66-A418937D95A5}.Debug|Win32.Build.0 = Debug|Win32
+		{3924EC61-446B-43A4-AE66-A418937D95A5}.Debug|x64.ActiveCfg = Debug|x64
+		{3924EC61-446B-43A4-AE66-A418937D95A5}.Debug|x64.Build.0 = Debug|x64
+		{3924EC61-446B-43A4-AE66-A418937D95A5}.DebugDLL|Win32.ActiveCfg = Debug|Win32
+		{3924EC61-446B-43A4-AE66-A418937D95A5}.DebugDLL|Win32.Build.0 = Debug|Win32
+		{3924EC61-446B-43A4-AE66-A418937D95A5}.DebugDLL|x64.ActiveCfg = Debug|x64
+		{3924EC61-446B-43A4-AE66-A418937D95A5}.DebugDLL|x64.Build.0 = Debug|x64
+		{3924EC61-446B-43A4-AE66-A418937D95A5}.Release|Win32.ActiveCfg = Release|Win32
+		{3924EC61-446B-43A4-AE66-A418937D95A5}.Release|Win32.Build.0 = Release|Win32
+		{3924EC61-446B-43A4-AE66-A418937D95A5}.Release|x64.ActiveCfg = Release|x64
+		{3924EC61-446B-43A4-AE66-A418937D95A5}.Release|x64.Build.0 = Release|x64
+		{3924EC61-446B-43A4-AE66-A418937D95A5}.ReleaseDLL|Win32.ActiveCfg = Release|Win32
+		{3924EC61-446B-43A4-AE66-A418937D95A5}.ReleaseDLL|Win32.Build.0 = Release|Win32
+		{3924EC61-446B-43A4-AE66-A418937D95A5}.ReleaseDLL|x64.ActiveCfg = Release|x64
+		{3924EC61-446B-43A4-AE66-A418937D95A5}.ReleaseDLL|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
