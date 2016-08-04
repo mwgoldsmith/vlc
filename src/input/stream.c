@@ -325,8 +325,7 @@ error:
     return NULL;
 }
 
-static ssize_t vlc_stream_CopyBlock(block_t **restrict pp,
-                                    void *buf, size_t len)
+static ssize_t vlc_stream_CopyBlock(block_t **__restrict pp, void *buf, size_t len)
 {
     block_t *block = *pp;
 
@@ -425,7 +424,7 @@ ssize_t vlc_stream_Read(stream_t *s, void *buf, size_t len)
     return copied;
 }
 
-ssize_t vlc_stream_Peek(stream_t *s, const uint8_t **restrict bufp, size_t len)
+ssize_t vlc_stream_Peek(stream_t *s, const uint8_t **__restrict bufp, size_t len)
 {
     stream_priv_t *priv = (stream_priv_t *)s;
     block_t *peek;
