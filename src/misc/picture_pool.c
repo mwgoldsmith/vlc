@@ -149,7 +149,7 @@ picture_pool_t *picture_pool_New(unsigned count, picture_t *const *tab)
 picture_pool_t *picture_pool_NewFromFormat(const video_format_t *fmt,
                                            unsigned count)
 {
-    picture_t *picture[count ? count : 1];
+    picture_t **picture = (picture_t **)calloc(count ? count : 1, sizeof(picture_t *));
     unsigned i;
 
     for (i = 0; i < count; i++) {
@@ -162,17 +162,20 @@ picture_pool_t *picture_pool_NewFromFormat(const video_format_t *fmt,
     if (!pool)
         goto error;
 
+    free(picture);
     return pool;
 
 error:
     while (i > 0)
         picture_Release(picture[--i]);
+
+    free(picture);
     return NULL;
 }
 
 picture_pool_t *picture_pool_Reserve(picture_pool_t *master, unsigned count)
 {
-    picture_t *picture[count ? count : 1];
+    picture_t **picture = (picture_t **)calloc(count ? count : 1, sizeof(picture_t *));
     unsigned i;
 
     for (i = 0; i < count; i++) {
@@ -185,11 +188,14 @@ picture_pool_t *picture_pool_Reserve(picture_pool_t *master, unsigned count)
     if (!pool)
         goto error;
 
+    free(picture);
     return pool;
 
 error:
     while (i > 0)
         picture_Release(picture[--i]);
+
+    free(picture);
     return NULL;
 }
 
