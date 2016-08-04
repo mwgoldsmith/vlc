@@ -1,0 +1,648 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\win32">
+      <UniqueIdentifier>{c1dcdf05-6df5-4ece-878c-71e379a01925}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\audio_output">
+      <UniqueIdentifier>{f9d20341-c710-4630-9ecf-2922d74d933c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\config">
+      <UniqueIdentifier>{e0a17211-7fec-4b80-bfe8-4ff0efedb91b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\extras">
+      <UniqueIdentifier>{ca1a68fa-4024-4c9f-aa90-69468e387d21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\input">
+      <UniqueIdentifier>{07169d8c-58a6-41ac-b098-5e0a9cd7fab3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\interface">
+      <UniqueIdentifier>{373a7f90-fdef-4a27-a22e-49f0d2c6b654}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\video_output">
+      <UniqueIdentifier>{0e9a4b34-0f59-47bd-81d5-52315f37f4f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\test">
+      <UniqueIdentifier>{104565e7-4d42-4bac-99ae-c18dcc9405bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\text">
+      <UniqueIdentifier>{29c26357-aa22-4842-9b45-32a49c8dea44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\stream_output">
+      <UniqueIdentifier>{11d87fbb-d746-4d7f-b105-85f8718ea1ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\playlist">
+      <UniqueIdentifier>{df06309e-9dc3-4e2e-8776-90e44558a97c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\misc">
+      <UniqueIdentifier>{a97e5da3-5614-40e6-8810-caa923f85b3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\modules">
+      <UniqueIdentifier>{1d9e4d5b-b88a-4511-ba20-77d229ff477f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\network">
+      <UniqueIdentifier>{04f0e16c-28d5-43d1-9ee1-7b0379f38f57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\android">
+      <UniqueIdentifier>{3a2b9746-e880-4d1e-8f21-4d5eb91c3ce1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\audio_output">
+      <UniqueIdentifier>{5fdfe094-a89c-4e98-a3e7-bcfcf182f9b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\config">
+      <UniqueIdentifier>{c2fdc907-e0a8-4e68-9fb7-bd0b34e79786}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\input">
+      <UniqueIdentifier>{924d398c-314f-4c1b-a9e3-e28781eb6567}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\misc">
+      <UniqueIdentifier>{240383a7-04f2-49ca-98d1-d08f496b7dcf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\modules">
+      <UniqueIdentifier>{842c3fe6-2320-420f-9f25-11def7605c66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\playlist">
+      <UniqueIdentifier>{6141df4e-6fe6-4c5a-bd69-0f527fe2d93b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\stream_output">
+      <UniqueIdentifier>{f77f3cf2-1e59-4082-b9d1-456aef02ca7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\text">
+      <UniqueIdentifier>{74cd6501-1c33-4b77-a5a5-67f5540ec7be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\video_output">
+      <UniqueIdentifier>{1ed85903-656c-4b26-ae9e-31591dc3fa74}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\win32\dirs.c">
+      <Filter>Source Files\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\win32\error.c">
+      <Filter>Source Files\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\win32\filesystem.c">
+      <Filter>Source Files\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\win32\netconf.c">
+      <Filter>Source Files\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\win32\plugin.c">
+      <Filter>Source Files\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\win32\rand.c">
+      <Filter>Source Files\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\win32\specific.c">
+      <Filter>Source Files\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\win32\thread.c">
+      <Filter>Source Files\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\win32\winsock.c">
+      <Filter>Source Files\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\android\netconf.c">
+      <Filter>Source Files\android</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\android\thread.c">
+      <Filter>Source Files\android</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\android\dirs.c">
+      <Filter>Source Files\android</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\android\error.c">
+      <Filter>Source Files\android</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\audio_output\dec.c">
+      <Filter>Source Files\audio_output</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\audio_output\filters.c">
+      <Filter>Source Files\audio_output</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\audio_output\output.c">
+      <Filter>Source Files\audio_output</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\audio_output\volume.c">
+      <Filter>Source Files\audio_output</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\audio_output\common.c">
+      <Filter>Source Files\audio_output</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\config\getopt.c">
+      <Filter>Source Files\config</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\config\help.c">
+      <Filter>Source Files\config</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\config\intf.c">
+      <Filter>Source Files\config</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\config\keys.c">
+      <Filter>Source Files\config</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\config\chain.c">
+      <Filter>Source Files\config</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\config\cmdline.c">
+      <Filter>Source Files\config</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\config\core.c">
+      <Filter>Source Files\config</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\config\file.c">
+      <Filter>Source Files\config</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\extras\libc.c">
+      <Filter>Source Files\extras</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\extras\tdestroy.c">
+      <Filter>Source Files\extras</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\input\resource.c">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\input\stats.c">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\input\stream.c">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\input\stream_demux.c">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\input\stream_filter.c">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\input\stream_memory.c">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\input\subtitles.c">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\input\var.c">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\input\vlm.c">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\input\vlm_event.c">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\input\vlmshell.c">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\input\access.c">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\input\clock.c">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\input\control.c">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\input\decoder.c">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\input\decoder_synchro.c">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\input\demux.c">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\input\es_out.c">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\input\es_out_timeshift.c">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\input\event.c">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\input\input.c">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\input\item.c">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\input\meta.c">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\interface\dialog.c">
+      <Filter>Source Files\interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\interface\interface.c">
+      <Filter>Source Files\interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\misc\mtime.c">
+      <Filter>Source Files\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\misc\objects.c">
+      <Filter>Source Files\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\misc\picture.c">
+      <Filter>Source Files\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\misc\picture_fifo.c">
+      <Filter>Source Files\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\misc\picture_pool.c">
+      <Filter>Source Files\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\misc\probe.c">
+      <Filter>Source Files\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\misc\rand.c">
+      <Filter>Source Files\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\misc\subpicture.c">
+      <Filter>Source Files\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\misc\text_style.c">
+      <Filter>Source Files\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\misc\threads.c">
+      <Filter>Source Files\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\misc\update.c">
+      <Filter>Source Files\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\misc\update_crypto.c">
+      <Filter>Source Files\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\misc\variables.c">
+      <Filter>Source Files\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\misc\xml.c">
+      <Filter>Source Files\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\misc\addons.c">
+      <Filter>Source Files\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\misc\block.c">
+      <Filter>Source Files\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\misc\cpu.c">
+      <Filter>Source Files\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\misc\epg.c">
+      <Filter>Source Files\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\misc\error.c">
+      <Filter>Source Files\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\misc\es_format.c">
+      <Filter>Source Files\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\misc\events.c">
+      <Filter>Source Files\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\misc\exit.c">
+      <Filter>Source Files\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\misc\filter.c">
+      <Filter>Source Files\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\misc\filter_chain.c">
+      <Filter>Source Files\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\misc\fingerprinter.c">
+      <Filter>Source Files\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\misc\fourcc.c">
+      <Filter>Source Files\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\misc\image.c">
+      <Filter>Source Files\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\misc\md5.c">
+      <Filter>Source Files\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\misc\messages.c">
+      <Filter>Source Files\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\misc\mime.c">
+      <Filter>Source Files\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\modules\modules.c">
+      <Filter>Source Files\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\modules\textdomain.c">
+      <Filter>Source Files\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\modules\bank.c">
+      <Filter>Source Files\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\modules\cache.c">
+      <Filter>Source Files\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\modules\entry.c">
+      <Filter>Source Files\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\network\io.c">
+      <Filter>Source Files\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\network\rootbind.c">
+      <Filter>Source Files\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\network\tcp.c">
+      <Filter>Source Files\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\network\tls.c">
+      <Filter>Source Files\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\network\udp.c">
+      <Filter>Source Files\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\network\getaddrinfo.c">
+      <Filter>Source Files\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\network\httpd.c">
+      <Filter>Source Files\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\playlist\services_discovery.c">
+      <Filter>Source Files\playlist</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\playlist\sort.c">
+      <Filter>Source Files\playlist</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\playlist\thread.c">
+      <Filter>Source Files\playlist</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\playlist\tree.c">
+      <Filter>Source Files\playlist</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\playlist\aout.c">
+      <Filter>Source Files\playlist</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\playlist\art.c">
+      <Filter>Source Files\playlist</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\playlist\control.c">
+      <Filter>Source Files\playlist</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\playlist\engine.c">
+      <Filter>Source Files\playlist</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\playlist\fetcher.c">
+      <Filter>Source Files\playlist</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\playlist\item.c">
+      <Filter>Source Files\playlist</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\playlist\loadsave.c">
+      <Filter>Source Files\playlist</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\playlist\preparser.c">
+      <Filter>Source Files\playlist</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\playlist\search.c">
+      <Filter>Source Files\playlist</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\stream_output\sap.c">
+      <Filter>Source Files\stream_output</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\stream_output\sdp.c">
+      <Filter>Source Files\stream_output</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\stream_output\stream_output.c">
+      <Filter>Source Files\stream_output</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\stream_output\announce.c">
+      <Filter>Source Files\stream_output</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\test\headers.c">
+      <Filter>Source Files\test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\test\i18n_atof.c">
+      <Filter>Source Files\test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\test\md5.c">
+      <Filter>Source Files\test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\test\timer.c">
+      <Filter>Source Files\test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\test\url.c">
+      <Filter>Source Files\test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\test\utf8.c">
+      <Filter>Source Files\test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\test\xmlent.c">
+      <Filter>Source Files\test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\test\block_test.c">
+      <Filter>Source Files\test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\test\dictionary.c">
+      <Filter>Source Files\test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\text\filesystem.c">
+      <Filter>Source Files\text</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\text\iso_lang.c">
+      <Filter>Source Files\text</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\text\strings.c">
+      <Filter>Source Files\text</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\text\unicode.c">
+      <Filter>Source Files\text</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\text\url.c">
+      <Filter>Source Files\text</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\text\charset.c">
+      <Filter>Source Files\text</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\video_output\video_text.c">
+      <Filter>Source Files\video_output</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\video_output\video_widgets.c">
+      <Filter>Source Files\video_output</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\video_output\vout_intf.c">
+      <Filter>Source Files\video_output</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\video_output\vout_subpictures.c">
+      <Filter>Source Files\video_output</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\video_output\vout_wrapper.c">
+      <Filter>Source Files\video_output</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\video_output\window.c">
+      <Filter>Source Files\video_output</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\video_output\control.c">
+      <Filter>Source Files\video_output</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\video_output\display.c">
+      <Filter>Source Files\video_output</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\video_output\inhibit.c">
+      <Filter>Source Files\video_output</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\video_output\interlacing.c">
+      <Filter>Source Files\video_output</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\video_output\opengl.c">
+      <Filter>Source Files\video_output</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\video_output\snapshot.c">
+      <Filter>Source Files\video_output</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\video_output\video_epg.c">
+      <Filter>Source Files\video_output</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\video_output\video_output.c">
+      <Filter>Source Files\video_output</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\libvlc-module.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\missing.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\version.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\libvlc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\audio_output\aout_internal.h">
+      <Filter>Header Files\audio_output</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\config\configuration.h">
+      <Filter>Header Files\config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\config\vlc_getopt.h">
+      <Filter>Header Files\config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\input\input_internal.h">
+      <Filter>Header Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\input\item.h">
+      <Filter>Header Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\input\resource.h">
+      <Filter>Header Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\input\stream.h">
+      <Filter>Header Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\input\vlm_event.h">
+      <Filter>Header Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\input\vlm_internal.h">
+      <Filter>Header Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\input\access.h">
+      <Filter>Header Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\input\clock.h">
+      <Filter>Header Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\input\decoder.h">
+      <Filter>Header Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\input\demux.h">
+      <Filter>Header Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\input\es_out.h">
+      <Filter>Header Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\input\es_out_timeshift.h">
+      <Filter>Header Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\input\event.h">
+      <Filter>Header Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\input\info.h">
+      <Filter>Header Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\input\input_interface.h">
+      <Filter>Header Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\misc\subpicture.h">
+      <Filter>Header Files\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\misc\update.h">
+      <Filter>Header Files\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\misc\variables.h">
+      <Filter>Header Files\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\modules\modules.h">
+      <Filter>Header Files\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\playlist\art.h">
+      <Filter>Header Files\playlist</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\playlist\fetcher.h">
+      <Filter>Header Files\playlist</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\playlist\playlist_internal.h">
+      <Filter>Header Files\playlist</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\playlist\preparser.h">
+      <Filter>Header Files\playlist</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\stream_output\stream_output.h">
+      <Filter>Header Files\stream_output</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\text\iso-639_def.h">
+      <Filter>Header Files\text</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\video_output\chrono.h">
+      <Filter>Header Files\video_output</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\video_output\control.h">
+      <Filter>Header Files\video_output</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\video_output\display.h">
+      <Filter>Header Files\video_output</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\video_output\event.h">
+      <Filter>Header Files\video_output</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\video_output\inhibit.h">
+      <Filter>Header Files\video_output</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\video_output\interlacing.h">
+      <Filter>Header Files\video_output</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\video_output\snapshot.h">
+      <Filter>Header Files\video_output</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\video_output\statistic.h">
+      <Filter>Header Files\video_output</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\video_output\vout_control.h">
+      <Filter>Header Files\video_output</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\video_output\vout_internal.h">
+      <Filter>Header Files\video_output</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\libvlc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
