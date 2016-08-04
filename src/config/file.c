@@ -278,19 +278,22 @@ int config_CreateDir( vlc_object_t *p_this, const char *psz_dirname )
         case ENOENT:
         {
             /* Let's try to create the parent directory */
-            char psz_parent[strlen( psz_dirname ) + 1], *psz_end;
+            char *psz_parent = (char *)malloc(strlen(psz_dirname) + 1);
+            char *psz_end;
             strcpy( psz_parent, psz_dirname );
 
             psz_end = strrchr( psz_parent, DIR_SEP_CHAR );
-            if( psz_end && psz_end != psz_parent )
-            {
-                *psz_end = '\0';
-                if( config_CreateDir( p_this, psz_parent ) == 0 )
-                {
-                    if( !vlc_mkdir( psz_dirname, 0700 ) )
-                        return 0;
+            if(psz_end && psz_end != psz_parent) {
+              *psz_end = '\0';
+              if(config_CreateDir(p_this, psz_parent) == 0) {
+                if(!vlc_mkdir(psz_dirname, 0700)) {
+                  free(psz_parent);
+                  return 0;
                 }
+              }
             }
+
+            free(psz_parent);
         }
     }
 
