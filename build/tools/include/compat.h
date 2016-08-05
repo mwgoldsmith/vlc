@@ -19,6 +19,10 @@
 
 #endif /* _MSC_VER */
 
+#ifndef ssize_t
+#  define SSIZE_T ssize_t
+#endif
+
 #ifndef SSIZE_MAX
 # ifdef _WIN64
 #  define SSIZE_MAX _I64_MAX
