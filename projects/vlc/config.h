@@ -1,5 +1,50 @@
-#ifndef CONFIG_H
-#define CONFIG_H
+#ifndef BUILD_CONFIG_H
+#define BUILD_CONFIG_H
+
+#define PACKAGE_VERSION_MAJOR "2"
+
+#define PACKAGE_VERSION_MINOR "2"
+
+#define PACKAGE_VERSION_REVISION "4"
+
+#define PACKAGE_VERSION_EXTRA "0"
+
+#define PACKAGE_VERSION_DEV ""
+
+#define COPYRIGHT_YEARS "1996-2016"
+
+#define COPYRIGHT_MESSAGE "Copyright © " COPYRIGHT_YEARS " the VideoLAN team"
+
+#define CONFIGURE_LINE ""
+
+/* Name of package */
+#define PACKAGE "vlc"
+
+/* Define to the address where bug reports for this package should be sent. */
+#define PACKAGE_BUGREPORT ""
+
+/* Define to the one symbol short name of this package. */
+#define PACKAGE_TARNAME "vlc"
+
+/* Define to the home page for this package. */
+#define PACKAGE_URL ""
+
+/* Define to the version of this package. */
+#define PACKAGE_VERSION PACKAGE_VERSION_MAJOR "." PACKAGE_VERSION_MINOR "." PACKAGE_VERSION_REVISION
+
+/* Define to the full name of this package. */
+#define PACKAGE_NAME "vlc"
+
+/* Define to the full name and version of this package. */
+#define PACKAGE_STRING PACKAGE_NAME " " PACKAGE_VERSION
+
+#define VERSION PACKAGE_VERSION
+
+#define VERSION_MESSAGE PACKAGE_VERSION " Weatherwax"
+
+#define VLC_COMPILE_BY "vlc"
+
+#define VLC_COMPILE_HOST "BUILDBOT"
 
 #if defined(_WIN32) && !defined(_WIN32_WINNT)
 #  include <SDKDDKVer.h>
@@ -30,17 +75,22 @@
                                + __GNUC_MINOR__ * 100)
 #    endif
 #  endif
+#  define VLC_COMPILER "gcc"
 #elif _MSC_VER
 /* Code specific to MSVC compiler */
 #  define HAVE_MSVC 1
+#  define VLC_COMPILER "MSVC"
 #elif __BORLANDC__
 /* Code specific to Borland compilers */
 #  define HAVE_BORLAND 1
+#  define VLC_COMPILER "Borland"
 #elif __clang__
 #  define HAVE_CLANG 1
+#  define VLC_COMPILER "Clang"
 #elif __MINGW32__ || __MINGW64__
 /* Code specific to MinGW compilers */
 #  define HAVE_MINGW 1
+#  define VLC_COMPILER "mingw"
 #endif
 
 // ********
@@ -98,53 +148,6 @@
 /* #undef DEFAULT_FAMILY */
 
 /* #undef DEFAULT_MONOSPACE_FAMILY */
-
-#define VERSION "2.2.4"
-
-#define VERSION_MESSAGE "2.2.4 Weatherwax"
-
-#define COPYRIGHT_MESSAGE "Copyright © 1996-2016 the VideoLAN team"
-
-#define COPYRIGHT_YEARS "1996-2016"
-
-#define CONFIGURE_LINE "${CONFIGURE_LINE}"
-
-/* Name of package */
-#define PACKAGE "vlc"
-
-/* Define to the address where bug reports for this package should be sent. */
-#define PACKAGE_BUGREPORT ""
-
-/* Define to the full name of this package. */
-#define PACKAGE_NAME "vlc"
-
-/* Define to the full name and version of this package. */
-#define PACKAGE_STRING "vlc 2.2.4"
-
-/* Define to the one symbol short name of this package. */
-#define PACKAGE_TARNAME "vlc"
-
-/* Define to the home page for this package. */
-#define PACKAGE_URL ""
-
-/* Define to the version of this package. */
-#define PACKAGE_VERSION "2.2.4"
-
-#define PACKAGE_VERSION_MAJOR 2
-
-#define PACKAGE_VERSION_MINOR 2
-
-#define PACKAGE_VERSION_REVISION 4
-
-#define PACKAGE_VERSION_EXTRA 0
-
-#define PACKAGE_VERSION_DEV ""
-
-#define VLC_COMPILE_BY "vlc"
-
-#define VLC_COMPILE_HOST "BUILDBOT"
-
-#define VLC_COMPILER "MSVC"
 
 #define HAVE_DYNAMIC_PLUGINS 1
 
@@ -322,6 +325,14 @@
 
 /* #undef HAVE_STRVERSCMP */
 
+#define HAVE_STRUCT_POLLFD 1
+
+#define HAVE_STRUCT_TIMESPEC 1
+
+#if _MSC_VER >= 1700
+// Introduced in MSVC 2013
+#define HAVE_NANF 1
+#endif
 /* Define to 1 if 3D Now! inline assembly is available. */
 #define CAN_COMPILE_3DNOW 1
 
@@ -361,4 +372,4 @@
 #include <compat.h>
 #include <vlc_fixups.h>
 
-#endif
+#endif /* BUILD_CONFIG_H */
