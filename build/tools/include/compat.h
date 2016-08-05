@@ -1,13 +1,23 @@
-#ifndef __COMPAT_H__
-#define __COMPAT_H__
+#ifndef BUILD_COMPAT_H
+#define BUILD_COMPAT_H
 
-#define strcasecmp     stricmp
-#define strncasecmp    strnicmp
-#define snwprintf     _snwprintf
+#if defined(_MSC_VER)
+#  define __attribute__(x)
+#  define restrict          __restrict
 
-#if defined(_MSC_VER) && _MSC_VER<1900
-#  define snprintf    _snprintf
-#endif
+#  define strcasecmp        stricmp
+#  define strncasecmp       strnicmp
+#  define snwprintf         _snwprintf
+
+#  if _MSC_VER < 1900
+#    define snprintf        _snprintf
+#  endif
+
+#  ifndef __cplusplus
+#    define inline          __inline
+#  endif
+
+#endif /* _MSC_VER */
 
 #ifndef SSIZE_MAX
 # ifdef _WIN64
@@ -17,15 +27,8 @@
 # endif
 #endif
 
-#ifndef __cplusplus
-#define inline      __inline
-#endif
-
 typedef int        BOOL;
 typedef int        WINBOOL;
-
-#define __attribute__(x)
-#define restrict __restrict
 
 #define R_OK      04
 
@@ -87,4 +90,4 @@ typedef int        WINBOOL;
 
 #endif  /* Not _NO_OLDNAMES */
 
-#endif/*__COMPAT_H__*/
+#endif/*BUILD_COMPAT_H*/
