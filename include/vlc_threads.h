@@ -52,10 +52,11 @@ VLC_API void vlc_testcancel(void);
 #  define ETIMEDOUT 10060 /* This is the value in winsock.h. */
 # endif
 
-typedef struct
-{
-    struct vlc_thread *thread;
-} vlc_thread_t;
+typedef struct vlc_thread *vlc_thread_t;
+//typedef struct
+//{
+//    struct vlc_thread *thread;
+//} vlc_thread_t;
 
 # define VLC_THREAD_CANCELED NULL
 # define LIBVLC_NEED_SLEEP
@@ -253,10 +254,11 @@ typedef struct vlc_timer *vlc_timer_t;
 /**
  * Thread handle.
  */
-typedef struct
-{
-    pthread_t handle;
-} vlc_thread_t;
+typedef pthread_t       vlc_thread_t;
+//typedef struct
+//{
+//    pthread_t handle;
+//} vlc_thread_t;
 
 /**
  * Return value of a canceled thread.
@@ -667,8 +669,8 @@ void vlc_addr_broadcast(void *addr);
  * The thread must be <i>joined</i> with vlc_join() to reclaim resources
  * when it is not needed anymore.
  *
- * @param th storage space for the handle of the new thread (cannot be NULL)
- *           [OUT]
+ * @param th [OUT] pointer to write the handle of the created thread to
+ *                 (mandatory, must be non-NULL)
  * @param entry entry point for the thread
  * @param data data parameter given to the entry point
  * @param priority thread priority value
