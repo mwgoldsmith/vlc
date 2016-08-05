@@ -230,8 +230,8 @@ int *net_Listen (vlc_object_t *p_this, const char *psz_host,
  * This function is a cancellation point.
  * @return -1 on error, or the number of bytes of read.
  */
-ssize_t (net_Read)(vlc_object_t *__restrict obj, int fd,
-                   void *__restrict buf, size_t len)
+ssize_t (net_Read)(vlc_object_t *restrict obj, int fd,
+                   void *restrict buf, size_t len)
 {
     size_t rd = 0;
 

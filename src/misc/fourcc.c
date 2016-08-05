@@ -40,7 +40,7 @@ static int fourcc_cmp(const void *key, const void *ent)
     return memcmp(key, ent, 4);
 }
 
-static vlc_fourcc_t Lookup(vlc_fourcc_t fourcc, const char **__restrict dsc,
+static vlc_fourcc_t Lookup(vlc_fourcc_t fourcc, const char **restrict dsc,
                            const struct fourcc_mapping *mapv, size_t mapc,
                            const struct fourcc_desc *dscv, size_t dscc)
 {
@@ -70,28 +70,28 @@ static vlc_fourcc_t Lookup(vlc_fourcc_t fourcc, const char **__restrict dsc,
     return fourcc; /* Known FourCC (has a description) */
 }
 
-static vlc_fourcc_t LookupVideo(vlc_fourcc_t fourcc, const char **__restrict dsc)
+static vlc_fourcc_t LookupVideo(vlc_fourcc_t fourcc, const char **restrict dsc)
 {
     return Lookup(fourcc, dsc, mapping_video,
                   sizeof (mapping_video) / sizeof (mapping_video[0]),
                   desc_video, sizeof (desc_video) / sizeof (desc_video[0]));
 }
 
-static vlc_fourcc_t LookupAudio(vlc_fourcc_t fourcc, const char **__restrict dsc)
+static vlc_fourcc_t LookupAudio(vlc_fourcc_t fourcc, const char **restrict dsc)
 {
     return Lookup(fourcc, dsc, mapping_audio,
                   sizeof (mapping_audio) / sizeof (mapping_audio[0]),
                   desc_audio, sizeof (desc_audio) / sizeof (desc_audio[0]));
 }
 
-static vlc_fourcc_t LookupSpu(vlc_fourcc_t fourcc, const char **__restrict dsc)
+static vlc_fourcc_t LookupSpu(vlc_fourcc_t fourcc, const char **restrict dsc)
 {
     return Lookup(fourcc, dsc, mapping_spu,
                   sizeof (mapping_spu) / sizeof (mapping_spu[0]),
                   desc_spu, sizeof (desc_spu) / sizeof (desc_spu[0]));
 }
 
-static vlc_fourcc_t LookupCat(vlc_fourcc_t fourcc, const char **__restrict dsc,
+static vlc_fourcc_t LookupCat(vlc_fourcc_t fourcc, const char **restrict dsc,
                               int cat)
 {
     switch (cat)

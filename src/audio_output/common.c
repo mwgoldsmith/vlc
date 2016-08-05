@@ -250,7 +250,7 @@ void aout_FormatsPrint( vlc_object_t *obj, const char * psz_text,
  *****************************************************************************/
 unsigned aout_CheckChannelReorder( const uint32_t *chans_in,
                                    const uint32_t *chans_out,
-                                   uint32_t mask, uint8_t *__restrict table )
+                                   uint32_t mask, uint8_t *restrict table )
 {
     static_assert(AOUT_CHAN_MAX <= (sizeof (mask) * CHAR_BIT), "Missing bits");
 
@@ -293,7 +293,7 @@ unsigned aout_CheckChannelReorder( const uint32_t *chans_in,
  * \note The samples must be naturally aligned in memory.
  */
 void aout_ChannelReorder( void *ptr, size_t bytes, uint8_t channels,
-                          const uint8_t *__restrict chans_table, vlc_fourcc_t fourcc )
+                          const uint8_t *restrict chans_table, vlc_fourcc_t fourcc )
 {
     if( unlikely(bytes == 0) )
         return;
@@ -358,7 +358,7 @@ do { \
  * \note The samples must be naturally aligned in memory.
  * \warning Destination and source buffers MUST NOT overlap.
  */
-void aout_Interleave( void *__restrict dst, const void *const *srcv,
+void aout_Interleave( void *restrict dst, const void *const *srcv,
                       unsigned samples, unsigned chans, vlc_fourcc_t fourcc )
 {
 #define INTERLEAVE_TYPE(type) \
@@ -394,7 +394,7 @@ do { \
  * \note The samples must be naturally aligned in memory.
  * \warning Destination and source buffers MUST NOT overlap.
  */
-void aout_Deinterleave( void *__restrict dst, const void *__restrict src,
+void aout_Deinterleave( void *restrict dst, const void *restrict src,
                       unsigned samples, unsigned chans, vlc_fourcc_t fourcc )
 {
 #define DEINTERLEAVE_TYPE(type) \

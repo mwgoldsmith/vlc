@@ -97,7 +97,7 @@ static bool isurihex(int c)
         || ((unsigned char)(c - 'a') < 6);
 }
 
-static char *encode_URI_bytes (const char *str, size_t *__restrict lenp)
+static char *encode_URI_bytes (const char *str, size_t *restrict lenp)
 {
     char *buf = malloc (3 * *lenp + 1);
     if (unlikely(buf == NULL))
@@ -366,7 +366,7 @@ static bool vlc_uri_path_validate(const char *str)
  * \bug Errors cannot be detected.
  * \return nothing
  */
-void vlc_UrlParse (vlc_url_t *__restrict url, const char *str)
+void vlc_UrlParse (vlc_url_t *restrict url, const char *str)
 {
     url->psz_protocol = NULL;
     url->psz_username = NULL;
@@ -486,7 +486,7 @@ void vlc_UrlParse (vlc_url_t *__restrict url, const char *str)
 /**
  * Releases resources allocated by vlc_UrlParse().
  */
-void vlc_UrlClean (vlc_url_t *__restrict url)
+void vlc_UrlClean (vlc_url_t *restrict url)
 {
     free (url->psz_host);
     free (url->psz_buffer);
