@@ -272,7 +272,7 @@ int net_Accept (vlc_object_t *p_this, int *pi_fd)
     while (pi_fd[n] != -1)
         n++;
 
-    struct pollfd ufd[n];
+    struct pollfd *ufd = (struct pollfd *)calloc(n, sizeof(struct pollfd));
     /* Initialize file descriptor set */
     for (unsigned i = 0; i < n; i++)
     {
@@ -287,6 +287,7 @@ int net_Accept (vlc_object_t *p_this, int *pi_fd)
             if (net_errno != EINTR)
             {
                 msg_Err (p_this, "poll error: %s", vlc_strerror_c(net_errno));
+                free(ufd);
                 return -1;
             }
         }
@@ -307,9 +308,11 @@ int net_Accept (vlc_object_t *p_this, int *pi_fd)
              */
             memmove (pi_fd + i, pi_fd + i + 1, n - (i + 1));
             pi_fd[n - 1] = sfd;
+            free(ufd);
             return fd;
         }
     }
+    free(ufd);
     return -1;
 }
 
