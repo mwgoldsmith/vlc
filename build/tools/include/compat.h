@@ -4,8 +4,6 @@
 #if defined(_MSC_VER)
 #  define __attribute__(x)
 #  define restrict          __restrict
-
-#  define strcasecmp        stricmp
 #  define strncasecmp       strnicmp
 #  define snwprintf         _snwprintf
 
@@ -25,6 +23,15 @@ typedef unsigned short _mode_t;
 typedef _mode_t	mode_t;
 #endif
 #endif	/* Not _MODE_T_ */
+
+#ifndef _PID_T_
+#define	_PID_T_
+typedef int	_pid_t;
+
+#ifndef	_NO_OLDNAMES
+typedef _pid_t	pid_t;
+#endif
+#endif	/* Not _PID_T_ */
 
 #endif /* _MSC_VER */
 
