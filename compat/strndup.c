@@ -25,6 +25,7 @@
 #include <string.h>
 #include <stdlib.h>
 
+#if !defined(HAVE_STRNDUP)
 char *strndup (const char *str, size_t max)
 {
     size_t len = strnlen (str, max);
@@ -36,3 +37,4 @@ char *strndup (const char *str, size_t max)
     }
     return res;
 }
+#endif

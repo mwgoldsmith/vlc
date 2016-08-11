@@ -22,6 +22,8 @@
 # include <config.h>
 #endif
 
+#if !defined(HAVE_RECVMSG)
+
 #ifdef _WIN32
 # include <errno.h>
 # include <stdlib.h>
@@ -73,4 +75,7 @@ ssize_t recvmsg(int fd, struct msghdr *msg, int flags)
     }
     return -1;
 }
-#endif
+
+#endif /* _WIN32 */
+
+#endif /* HAVE_RECVMSG */

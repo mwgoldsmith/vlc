@@ -24,9 +24,13 @@
 
 #include <stdlib.h>
 
-#ifndef __ANDROID__
+#if !defined(HAVE_ATOF)
+
+#if !defined(__ANDROID__)
 double atof (const char *str)
 {
     return strtod (str, NULL);
 }
 #endif
+
+#endif /* HAVE_ATOF */

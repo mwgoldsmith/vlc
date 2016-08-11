@@ -40,7 +40,7 @@ int setenv (const char *name, const char *value, int override)
 
     sprintf (var, "%s=%s", name, value);
     /* This leaks memory. This is unavoidable. */
-    return putenv (var);
+    return _putenv (var);
 #else
     return -1;
 #endif

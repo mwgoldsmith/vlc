@@ -25,6 +25,7 @@
 #include <string.h>
 #include <stdlib.h>
 
+#if !defined(HAVE_STRDUP)
 char *strdup (const char *str)
 {
     size_t len = strlen (str) + 1;
@@ -33,3 +34,4 @@ char *strdup (const char *str)
         memcpy (res, str, len);
     return res;
 }
+#endif

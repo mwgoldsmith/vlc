@@ -24,6 +24,8 @@
 
 #include <string.h>
 
+#if !defined(HAVE_STRSEP)
+
 char *strsep( char **ppsz_string, const char *psz_delimiters )
 {
     char *psz_string = *ppsz_string;
@@ -41,3 +43,5 @@ char *strsep( char **ppsz_string, const char *psz_delimiters )
     *ppsz_string = p;
     return psz_string;
 }
+
+#endif /* HAVE_STRSEP */

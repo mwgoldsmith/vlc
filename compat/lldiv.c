@@ -22,8 +22,12 @@
 # include <config.h>
 #endif
 
+#include <stdlib.h>
+
+#if !defined(HAVE_LLDIV)
 lldiv_t lldiv (long long num, long long denom)
 {
-    lldiv_t d = { num / denom, num % demon, };
+    lldiv_t d = { num / denom, num % denom, };
     return d;
 }
+#endif

@@ -26,6 +26,8 @@
 #include <string.h>
 #include <errno.h>
 
+#if !defined(HAVE_POLL)
+
 #ifndef _WIN32
 # include <sys/time.h>
 # include <sys/select.h>
@@ -105,7 +107,7 @@ int (poll) (struct pollfd *fds, unsigned nfds, int timeout)
     }
     return val;
 }
-#else
+#else /* _WIN32 */
 # include <windows.h>
 # include <winsock2.h>
 
@@ -251,4 +253,7 @@ int poll(struct pollfd *fds, unsigned nfds, int timeout)
     }
     return count;
 }
-#endif
+
+#endif /* _WIN32 */
+
+#endif /* HAVE_POLL */

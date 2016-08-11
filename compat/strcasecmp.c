@@ -26,6 +26,7 @@
 #include <ctype.h>
 #include <assert.h>
 
+#if !defined(HAVE_STRCASECMP)
 int strcasecmp (const char *s1, const char *s2)
 {
 #ifdef HAVE_STRICMP
@@ -41,3 +42,4 @@ int strcasecmp (const char *s1, const char *s2)
     }
 #endif
 }
+#endif

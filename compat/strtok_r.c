@@ -24,6 +24,8 @@
 
 #include <string.h>
 
+#if !defined(HAVE_STRTOK_R)
+
 char *strtok_r(char *s, const char *delim, char **save_ptr)
 {
     char *token;
@@ -50,3 +52,5 @@ char *strtok_r(char *s, const char *delim, char **save_ptr)
     }
     return token;
 }
+
+#endif /* HAVE_STRTOK_R */

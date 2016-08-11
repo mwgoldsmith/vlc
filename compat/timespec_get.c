@@ -31,6 +31,8 @@
 # include <sys/time.h> /* gettimeofday() */
 #endif
 
+#if !defined(HAVE_TIMESPEC_GET)
+
 int timespec_get(struct timespec *ts, int base)
 {
     switch (base)
@@ -58,3 +60,5 @@ int timespec_get(struct timespec *ts, int base)
     }
     return base;
 }
+
+#endif /* HAVE_TIMESPEC_GET */

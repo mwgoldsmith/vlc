@@ -22,6 +22,7 @@
 # include <config.h>
 #endif
 
+#if !defined(HAVE_INET_PTON)
 #include <stdio.h>
 #include <errno.h>
 
@@ -67,3 +68,4 @@ const char *inet_ntop (int af, const void *src, char *dst, socklen_t len)
     errno = EAFNOSUPPORT;
     return NULL;
 }
+#endif

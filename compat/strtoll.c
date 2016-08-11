@@ -25,6 +25,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#if !defined(HAVE_STRTOLL)
+
 long long int strtoll( const char *nptr, char **endptr, int base )
 {
     long long i_value = 0;
@@ -90,3 +92,5 @@ long long int strtoll( const char *nptr, char **endptr, int base )
 
     return i_value * sign;
 }
+
+#endif /* HAVE_STRTOLL */

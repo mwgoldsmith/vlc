@@ -24,8 +24,10 @@
 
 #include <stdio.h>
 
+#if !defined(HAVE_REWIND)
 void rewind (FILE *stream)
 {
     fseek (stream, 0L, SEEK_SET);
     clearerr (stream);
 }
+#endif

@@ -24,7 +24,11 @@
 
 #include <stdlib.h>
 
+#if !defined(HAVE_ATOLL)
+
 long long atoll (const char *str)
 {
     return strtoll (str, NULL, 10);
 }
+
+#endif /* HAVE_ATOLL */

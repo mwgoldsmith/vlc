@@ -24,9 +24,11 @@
 
 #include <stdlib.h>
 
-#ifndef __ANDROID__
+#if !defined(HAVE_STRTOF)
+#if !defined(__ANDROID__) 
 float strtof (const char *str, char **end)
 {
     return strtod (str, end);
 }
-#endif
+#endif /* __ANDROID__ */
+#endif /* HAVE_STRTOF */

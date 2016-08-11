@@ -22,18 +22,23 @@
 # include <config.h>
 #endif
 
+#if !defined(HAVE_FLOCKFILE)
 #include <stdio.h>
 
 #ifdef _WIN32
-# ifndef HAVE__LOCK_FILE
-#  warning Broken SDK: VLC logs will be garbage.
-#  define _lock_file(s) ((void)(s))
-#  define _unlock_file(s) ((void)(s))
-#  undef _getc_nolock
-#  define _getc_nolock(s) getc(s)
-#  undef _putc_nolock
-#  define _putc_nolock(s,c) putc(s,c)
-# endif
+#  ifndef HAVE__LOCK_FILE
+#    ifndef _MSC_VER
+#      warning Broken SDK: VLC logs will be garbage.
+#    endif
+#    if defined(_MSC_VER) && _MSC_VER < 1900
+#      define _lock_file(s) ((void)(s))
+#      define _unlock_file(s) ((void)(s))
+#    endif
+#    undef _getc_nolock
+#    define _getc_nolock(s) getc(s)
+#    undef _putc_nolock
+#    define _putc_nolock(s,c) putc(s,c)
+#  endif
 
 void flockfile (FILE *stream)
 {
@@ -74,3 +79,5 @@ int putchar_unlocked (int c)
 {
     return putc_unlocked (c, stdout);
 }
+
+#endif /* HAVE_FLOCKFILE */

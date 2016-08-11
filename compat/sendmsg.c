@@ -22,6 +22,8 @@
 # include <config.h>
 #endif
 
+#if !defined(HAVE_SENDMSG)
+
 #ifdef _WIN32
 # include <errno.h>
 # include <stdlib.h>
@@ -68,4 +70,7 @@ ssize_t sendmsg(int fd, const struct msghdr *msg, int flags)
     }
     return -1;
 }
-#endif
+
+#endif /* _WIN32 */
+
+#endif /* HAVE_SENDMSG */

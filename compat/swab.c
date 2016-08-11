@@ -25,6 +25,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 
+#if !defined(HAVE_SWAB)
 void swab( const void *p_src_, void *p_dst_, ssize_t n )
 {
     const uint8_t *p_src = p_src_;
@@ -40,4 +41,4 @@ void swab( const void *p_src_, void *p_dst_, ssize_t n )
         p_dst[i+1] = i_tmp;
     }
 }
-
+#endif
