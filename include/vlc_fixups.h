@@ -45,6 +45,37 @@
 # endif
 #endif
 
+ // ************************************************************************
+ //
+ // Define external linkage:
+ //   COMPAT_API       Defines linkage to use for external symbols
+ //
+ // ************************************************************************
+#ifdef __cplusplus
+# define COMPAT_EXTERN extern "C"
+#else
+# define COMPAT_EXTERN
+#endif
+
+#if (defined(HAVE_WIN32) || defined(HAVE_WIN64))
+#  if defined(COMPAT_DLL_EXPORT)
+#    define COMPAT_EXPORT __declspec(dllexport)
+#  else
+#    if defined(_USRDLL)
+#      define COMPAT_EXPORT __declspec(dllimport)
+#    else
+#      define COMPAT_EXPORT 
+#    endif
+#  endif
+#elif TEST_GCC_VERSION(4,0)
+# define COMPAT_EXPORT __attribute__((visibility("default")))
+#else
+# define COMPAT_EXPORT
+#endif
+
+#define COMPAT_API     COMPAT_EXTERN COMPAT_EXPORT
+
+
 #if !defined (HAVE_GMTIME_R) || !defined (HAVE_LOCALTIME_R) \
  || !defined (HAVE_TIMEGM)
 # include <time.h> /* time_t */
@@ -109,147 +140,147 @@ extern "C" {
 
 /* stdio.h */
 #ifndef HAVE_ASPRINTF
-int asprintf (char **, const char *, ...);
+COMPAT_API int asprintf (char **, const char *, ...);
 #endif
 
 #ifndef HAVE_FLOCKFILE
-void flockfile (FILE *);
-int ftrylockfile (FILE *);
-void funlockfile (FILE *);
-int getc_unlocked (FILE *);
-int getchar_unlocked (void);
-int putc_unlocked (int, FILE *);
-int putchar_unlocked (int);
+COMPAT_API void flockfile (FILE *);
+COMPAT_API int ftrylockfile (FILE *);
+COMPAT_API void funlockfile (FILE *);
+COMPAT_API int getc_unlocked (FILE *);
+COMPAT_API int getchar_unlocked (void);
+COMPAT_API int putc_unlocked (int, FILE *);
+COMPAT_API int putchar_unlocked (int);
 #endif
 
 #ifndef HAVE_GETDELIM
-ssize_t getdelim (char **, size_t *, int, FILE *);
-ssize_t getline (char **, size_t *, FILE *);
+COMPAT_API ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
+COMPAT_API ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
 #endif
 
 #ifndef HAVE_REWIND
-void rewind (FILE *);
+COMPAT_API void rewind (FILE *);
 #endif
 
 #ifndef HAVE_VASPRINTF
-int vasprintf (char **, const char *, va_list);
+COMPAT_API int vasprintf (char **, const char *, va_list);
 #endif
 
 /* string.h */
 #ifndef HAVE_FFSLL
-int ffsll(unsigned long long);
+COMPAT_API int ffsll(unsigned long long);
 #endif
 
 #ifndef HAVE_MEMRCHR
-void *memrchr(const void *, int, size_t);
+COMPAT_API void *memrchr(const void *, int, size_t);
 #endif
 
 #ifndef HAVE_STRCASECMP
-int strcasecmp (const char *, const char *);
+COMPAT_API int strcasecmp (const char *, const char *);
 #endif
 
 #ifndef HAVE_STRCASESTR
-char *strcasestr (const char *, const char *);
+COMPAT_API char *strcasestr (const char *, const char *);
 #endif
 
 #ifndef HAVE_STRDUP
-char *strdup (const char *);
+COMPAT_API char *strdup (const char *);
 #endif
 
 #ifndef HAVE_STRVERSCMP
-int strverscmp (const char *, const char *);
+COMPAT_API int strverscmp (const char *, const char *);
 #endif
 
 #ifndef HAVE_STRNLEN
-size_t strnlen (const char *, size_t);
+COMPAT_API size_t strnlen (const char *, size_t);
 #endif
 
 #ifndef HAVE_STRNSTR
-char * strnstr (const char *, const char *, size_t);
+COMPAT_API char * strnstr (const char *, const char *, size_t);
 #endif
 
 #ifndef HAVE_STRNDUP
-char *strndup (const char *, size_t);
+COMPAT_API char *strndup (const char *, size_t);
 #endif
 
 #ifndef HAVE_STRLCPY
-size_t strlcpy (char *, const char *, size_t);
+COMPAT_API size_t strlcpy (char *, const char *, size_t);
 #endif
 
 #ifndef HAVE_STRSEP
-char *strsep (char **, const char *);
+COMPAT_API char *strsep (char **, const char *);
 #endif
 
 #ifndef HAVE_STRTOK_R
-char *strtok_r(char *, const char *, char **);
+COMPAT_API char *strtok_r(char *, const char *, char **);
 #endif
 
 /* stdlib.h */
 #ifndef HAVE_ATOF
 #ifndef __ANDROID__
-double atof (const char *);
+COMPAT_API double atof (const char *);
 #endif
 #endif
 
 #ifndef HAVE_ATOLL
-long long atoll (const char *);
+COMPAT_API long long atoll (const char *);
 #endif
 
 #ifndef HAVE_LLDIV
-lldiv_t lldiv (long long, long long);
+COMPAT_API lldiv_t lldiv (long long, long long);
 #endif
 
 #ifndef HAVE_STRTOF
 #ifndef __ANDROID__
-float strtof (const char *, char **);
+COMPAT_API float strtof (const char *, char **);
 #endif
 #endif
 
 #ifndef HAVE_STRTOLL
-long long int strtoll (const char *, char **, int);
+COMPAT_API long long int strtoll (const char *, char **, int);
 #endif
 
 /* time.h */
 #ifndef HAVE_GMTIME_R
-struct tm *gmtime_r (const time_t *, struct tm *);
+COMPAT_API struct tm *gmtime_r (const time_t *, struct tm *);
 #endif
 
 #ifndef HAVE_LOCALTIME_R
-struct tm *localtime_r (const time_t *, struct tm *);
+COMPAT_API struct tm *localtime_r (const time_t *, struct tm *);
 #endif
 
 #ifndef HAVE_TIMEGM
-time_t timegm(struct tm *);
+COMPAT_API time_t timegm(struct tm *);
 #endif
 
 #ifndef HAVE_TIMESPEC_GET
 #define TIME_UTC 1
 struct timespec;
-int timespec_get(struct timespec *, int);
+COMPAT_API int timespec_get(struct timespec *, int);
 #endif
 
 /* sys/time.h */
 #ifndef HAVE_GETTIMEOFDAY
 struct timezone;
-int gettimeofday(struct timeval *, struct timezone *);
+COMPAT_API int gettimeofday(struct timeval *, struct timezone *);
 #endif
 
 /* unistd.h */
 #ifndef HAVE_GETPID
-pid_t getpid (void) VLC_NOTHROW;
+COMPAT_API pid_t getpid (void) VLC_NOTHROW;
 #endif
 
 #ifndef HAVE_FSYNC
-int fsync (int fd);
+COMPAT_API int fsync (int fd);
 #endif
 
 /* dirent.h */
 #ifndef HAVE_DIRFD
-int (dirfd) (DIR *);
+COMPAT_API int (dirfd) (DIR *);
 #endif
 
 #ifndef HAVE_FDOPENDIR
-DIR *fdopendir (int);
+COMPAT_API DIR *fdopendir (int);
 #endif
 
 #ifdef __cplusplus
@@ -266,12 +297,12 @@ static inline char *getenv (const char *name)
 #endif
 
 #ifndef HAVE_SETENV
-int setenv (const char *, const char *, int);
-int unsetenv (const char *);
+COMPAT_API int setenv (const char *, const char *, int);
+COMPAT_API int unsetenv (const char *);
 #endif
 
 #ifndef HAVE_POSIX_MEMALIGN
-int posix_memalign (void **, size_t, size_t);
+COMPAT_API int posix_memalign (void **, size_t, size_t);
 #endif
 
 /* locale.h */
@@ -321,7 +352,7 @@ extern "C" {
 #endif
 
 #ifndef HAVE_SWAB
-void swab (const void *, void *, ssize_t);
+COMPAT_API void swab (const void *, void *, ssize_t);
 #endif
 
 /* Socket stuff */
@@ -331,8 +362,8 @@ void swab (const void *, void *, ssize_t);
 #else
 typedef int socklen_t;
 # endif
-int inet_pton(int, const char *, void *);
-const char *inet_ntop(int, const void *, char *, socklen_t);
+COMPAT_API int inet_pton(int, const char *, void *);
+COMPAT_API const char *inet_ntop(int, const void *, char *, socklen_t);
 #endif
 
 #ifndef HAVE_STRUCT_POLLFD
@@ -359,7 +390,7 @@ struct pollfd
 #endif
 #ifndef HAVE_POLL
 struct pollfd;
-int poll (struct pollfd *, unsigned, int);
+COMPAT_API int poll (struct pollfd *, unsigned, int);
 #endif
 
 #ifndef HAVE_IF_NAMEINDEX
@@ -404,12 +435,12 @@ struct msghdr
 
 #ifndef HAVE_RECVMSG
 struct msghdr;
-ssize_t recvmsg(int, struct msghdr *, int);
+COMPAT_API ssize_t recvmsg(int, struct msghdr *, int);
 #endif
 
 #ifndef HAVE_SENDMSG
 struct msghdr;
-ssize_t sendmsg(int, const struct msghdr *, int);
+COMPAT_API ssize_t sendmsg(int, const struct msghdr *, int);
 #endif
 
 /* search.h */
@@ -430,23 +461,23 @@ typedef enum {
     leaf
 } VISIT;
 
-void *tsearch( const void *key, void **rootp, int(*cmp)(const void *, const void *) );
-void *tfind( const void *key, const void **rootp, int(*cmp)(const void *, const void *) );
-void *tdelete( const void *key, void **rootp, int(*cmp)(const void *, const void *) );
-void twalk( const void *root, void(*action)(const void *nodep, VISIT which, int depth) );
-void tdestroy( void *root, void (*free_node)(void *nodep) );
+COMPAT_API void *tsearch( const void *key, void **rootp, int(*cmp)(const void *, const void *) );
+COMPAT_API void *tfind( const void *key, const void **rootp, int(*cmp)(const void *, const void *) );
+COMPAT_API void *tdelete( const void *key, void **rootp, int(*cmp)(const void *, const void *) );
+COMPAT_API void twalk( const void *root, void(*action)(const void *nodep, VISIT which, int depth) );
+COMPAT_API void tdestroy( void *root, void (*free_node)(void *nodep) );
 #else // HAVE_SEARCH_H
 # ifndef HAVE_TDESTROY
-void vlc_tdestroy( void *, void (*)(void *) );
+COMPAT_API void vlc_tdestroy( void *, void (*)(void *) );
 #  define tdestroy vlc_tdestroy
 # endif
 #endif
 
 /* Random numbers */
 #ifndef HAVE_NRAND48
-double erand48 (unsigned short subi[3]);
-long jrand48 (unsigned short subi[3]);
-long nrand48 (unsigned short subi[3]);
+COMPAT_API double erand48 (unsigned short subi[3]);
+COMPAT_API long jrand48 (unsigned short subi[3]);
+COMPAT_API long nrand48 (unsigned short subi[3]);
 #endif
 
 #ifdef __OS2__
@@ -464,13 +495,13 @@ struct addrinfo
     struct addrinfo *ai_next;
 };
 
-void freeaddrinfo (struct addrinfo *res);
+COMPAT_API void freeaddrinfo (struct addrinfo *res);
 #endif
 
 /* math.h */
 
 #ifndef HAVE_NANF
-#define nanf(tagp) NAN
+#  define nanf(tagp) NAN
 #endif
 
 #ifdef _WIN32

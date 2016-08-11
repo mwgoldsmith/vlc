@@ -33,7 +33,7 @@
 #define BUILD_LUA                    1
 
 /* HTTP daemon support */
-/* #undef BUILD_HTTPD */
+#define ENABLE_HTTPD                 1
 
 /* Skins interface module support */
 /* #undef BUILD_SKINS */
@@ -96,12 +96,13 @@
 //
 // Identify the compiler being used. Currently supported macro definitions as output:
 //   HAVE_GCC         GNU C compiler
-//   HAVE_GCC_VERSION Standardized version number of GCC compiler (if HAVE_GCC is defined)
+//   HAVE_GCC_VERSION Standardized version number of GCC compiler
+//   TEST_GCC_VERSION Macro to test if the version of GCC meets a minimum
 //   HAVE_MSVC        Microsoft Visual C/C++ compiler
 //   HAVE_BORLAND     Borland C/C++ compiler
 //   HAVE_CLANG       Clang compiler
 //   HAVE_MINGW       MinGW32 or MinGW64 compiler
-//   VLC_COMPILER     String indicating the name of the compiler being used. 
+//   VLC_COMPILER     String indicating the name of the compiler being used
 //
 // ************************************************************************
 #ifdef __GNUC__
@@ -115,26 +116,33 @@
 #      define HAVE_GCC_VERSION (__GNUC__ * 10000 \
                                + __GNUC_MINOR__ * 100)
 #    endif
+#    define TEST_GCC_VERSION(maj,min) \
+                            ((__GNUC__ > (maj)) || (__GNUC__ == (maj) && __GNUC_MINOR__ >= (min)))
 #  endif
-#  define HAVE_GCC     1
-#  define VLC_COMPILER "gcc"
+#  define HAVE_GCC                 1
+#  define VLC_COMPILER             "gcc"
 #elif _MSC_VER
 /* Code specific to MSVC compiler */
-#  define HAVE_MSVC    1
-#  define VLC_COMPILER "MSVC"
+#  define HAVE_MSVC                1
+#  define VLC_COMPILER             "MSVC"
 #elif __BORLANDC__
 /* Code specific to Borland compilers */
-#  define HAVE_BORLAND 1
-#  define VLC_COMPILER "Borland"
+#  define HAVE_BORLAND             1
+#  define VLC_COMPILER             "Borland"
 #elif __clang__
-#  define HAVE_CLANG   1
-#  define VLC_COMPILER "Clang"
+#  define HAVE_CLANG               1
+#  define VLC_COMPILER             "Clang"
 #elif __MINGW32__ || __MINGW64__
 /* Code specific to MinGW compilers */
-#  define HAVE_MINGW   1
-#  define VLC_COMPILER "mingw"
+#  define HAVE_MINGW               1
+#  define VLC_COMPILER             "mingw"
 #endif
-
+#if !defined(TEST_GCC_VERSION)
+# define TEST_GCC_VERSION(maj,min) (0)
+#endif
+#if !defined(HAVE_GCC_VERSION)
+# define HAVE_GCC_VERSION          (0)
+#endif
 
 
 // ************************************************************************
@@ -247,6 +255,10 @@
 
 /* #undef HAVE_STRVERSCMP */
 
+/* #undef HAVE_GETTIMEOFDAY */
+
+/* #undef HAVE_TIMEGM */
+
 #if _WIN32_WINNT >= _WIN32_WINNT_VISTA
 // Introduced in Windows Vista
 #  define HAVE_STRUCT_POLLFD   1
@@ -254,6 +266,7 @@
 
 #if _MSC_VER >= 1900
 // Introduced in MSVC 2015
+#  define HAVE_TIMESPEC_GET    1
 #  define HAVE_STRUCT_TIMESPEC 1 /* Unconfirmed version introduced in */
 #  define HAVE_INET_PTON       1 /* Unconfirmed version introduced in */
 #endif
