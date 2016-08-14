@@ -235,7 +235,7 @@ Several ranges are need because some operations are not implemented for all type
     atomic_compare_exchange_strong(object, expected, desired)
 #  define atomic_compare_exchange_weak(object,expected,desired) \
     atomic_compare_exchange_strong(object, expected, desired)
-#  define atomic_compare_exchange_weak_explicit(object,expected,desired,order) \
+#  define atomic_compare_exchange_weak_explicit(object,expected,desired,order,order_different) \
     atomic_compare_exchange_weak(object, expected, desired)
 
 #  define atomic_fetch_add(object,operand) \
