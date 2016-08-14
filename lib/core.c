@@ -46,7 +46,7 @@ libvlc_instance_t * libvlc_new( int argc, const char *const *argv )
     if (unlikely(p_new == NULL))
         return NULL;
 
-    const char *my_argv[argc + 2];
+    const char **my_argv = (const char **)malloc(sizeof(char *) * (argc + 2));
     my_argv[0] = "libvlc"; /* dummy arg0, skipped by getopt() et al */
     for( int i = 0; i < argc; i++ )
          my_argv[i + 1] = argv[i];
@@ -69,10 +69,12 @@ libvlc_instance_t * libvlc_new( int argc, const char *const *argv )
     p_new->ref_count = 1;
     p_new->p_callback_list = NULL;
     vlc_mutex_init(&p_new->instance_lock);
+    free(my_argv);
     return p_new;
 
 error:
     free (p_new);
+    free(my_argv);
     libvlc_threads_deinit ();
     return NULL;
 }
