@@ -47,7 +47,9 @@
 #include <unistd.h>
 
 #ifdef HAVE_POLL
+#ifndef _MSC_VER
 # include <poll.h>
+#endif
 #endif
 
 #if defined(_WIN32)
@@ -1711,7 +1713,7 @@ auth_failed:
 
 static void httpdLoop(httpd_host_t *host)
 {
-    struct pollfd ufd[host->nfd + host->i_client];
+    struct pollfd *ufd = (struct pollfd *)calloc(host->nfd + host->i_client, sizeof(struct pollfd));
     unsigned nfd;
     for (nfd = 0; nfd < host->nfd; nfd++) {
         ufd[nfd].fd = host->fds[nfd];
@@ -1988,6 +1990,7 @@ static void httpdLoop(httpd_host_t *host)
             }
         case 0:
             vlc_restorecancel(canc);
+            free(ufd);
             return;
     }
 
@@ -2053,6 +2056,7 @@ static void httpdLoop(httpd_host_t *host)
     }
 
     vlc_restorecancel(canc);
+    free(ufd);
 }
 
 static void* httpd_HostThread(void *data)
