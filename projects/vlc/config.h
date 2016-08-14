@@ -77,6 +77,8 @@
 
 #define PACKAGE_VERSION_NAME         "Weatherwax"
 
+#define PACKAGE_GIT_COMMIT           "a472d77"
+
 #define CONFIGURE_LINE               ""
 
 
@@ -159,11 +161,11 @@
 // ************************************************************************
 #if defined(_WINDOWS)
 #  define WIN32_LEAN_AND_MEAN 1
-#  if defined(_WIN32) && !defined(_WIN32_WINNT)
+#  if !defined(_WIN32_WINNT)
+#    define _WIN32_WINNT 0x601 /* Windows 7 */
+#  endif
+#  if defined(_WIN32)
 #    include <SDKDDKVer.h>
-#    if !defined(_WIN32_WINNT)
-#      define _WIN32_WINNT 0x0600 /* Windows Vista */
-#    endif
 #  endif
 #  if defined(__x86_64__) || defined(_M_AMD64)
 #      define HAVE_WIN64 1
@@ -244,6 +246,8 @@
 /* #undef HAVE_SETENV */
 
 /* #undef HAVE_STRCASESTR */
+
+/* #undef HAVE_STRVERSCMP */
 
 /* #undef HAVE_STRLCPY */
 
