@@ -542,7 +542,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <ImportLibrary>$(OutDir)..\lib\$(TargetName).lib</ImportLibrary>
-      <AdditionalDependencies>intl.lib;compat.lib;winmm.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>intl.lib;compat.lib;normaliz.lib;winmm.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(OutDir)..\lib\</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -575,7 +575,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <ImportLibrary>$(OutDir)..\lib\$(TargetName).lib</ImportLibrary>
-      <AdditionalDependencies>intl.lib;compat.lib;winmm.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>intl.lib;compat.lib;normaliz.lib;winmm.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(OutDir)..\lib\</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
