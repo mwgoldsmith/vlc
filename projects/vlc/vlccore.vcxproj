@@ -535,7 +535,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>HAVE_CONFIG_H;MODULE_STRING="core";__i386__;WIN32;_WINDOWS;_DEBUG;DEBUG;_USRDLL;LIBVLCCORE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>HAVE_CONFIG_H;DLL_EXPORT;MODULE_STRING="core";__i386__;WIN32;_WINDOWS;_DEBUG;DEBUG;_USRDLL;LIBVLCCORE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)..\..\include;$(ProjectDir)..\..\src;$(OutDir)..\..\..\tools\include;$(OutDir)..\..\..\include\gettext;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4996</DisableSpecificWarnings>
     </ClCompile>
@@ -568,7 +568,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>HAVE_CONFIG_H;MODULE_STRING="core";__x86_64__;WIN32;_WINDOWS;_DEBUG;DEBUG;_USRDLL;LIBVLCCORE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>HAVE_CONFIG_H;DLL_EXPORT;MODULE_STRING="core";__x86_64__;WIN32;_WINDOWS;_DEBUG;DEBUG;_USRDLL;LIBVLCCORE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)..\..\include;$(ProjectDir)..\..\src;$(OutDir)..\..\..\tools\include;$(OutDir)..\..\..\include\gettext;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4996</DisableSpecificWarnings>
     </ClCompile>
@@ -605,7 +605,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>HAVE_CONFIG_H;MODULE_STRING="core";__i386__;WIN32;_WINDOWS;NDEBUG;_USRDLL;LIBVLCCORE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>HAVE_CONFIG_H;DLL_EXPORT;MODULE_STRING="core";__i386__;WIN32;_WINDOWS;NDEBUG;_USRDLL;LIBVLCCORE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)..\..\include;$(ProjectDir)..\..\src;$(OutDir)..\..\..\tools\include;$(OutDir)..\..\..\include\gettext;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4996</DisableSpecificWarnings>
     </ClCompile>
@@ -644,7 +644,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>HAVE_CONFIG_H;MODULE_STRING="core";__x86_64__;WIN32;_WINDOWS;NDEBUG;_USRDLL;LIBVLCCORE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>HAVE_CONFIG_H;DLL_EXPORT;MODULE_STRING="core";__x86_64__;WIN32;_WINDOWS;NDEBUG;_USRDLL;LIBVLCCORE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)..\..\include;$(ProjectDir)..\..\src;$(OutDir)..\..\..\tools\include;$(OutDir)..\..\..\include\gettext;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4996</DisableSpecificWarnings>
     </ClCompile>
