@@ -38,7 +38,7 @@ void vlc_global_mutex (unsigned n, bool acquire)
         VLC_STATIC_MUTEX,
         VLC_STATIC_MUTEX,
     };
-    static_assert (VLC_MAX_MUTEX == (sizeof (locks) / sizeof (locks[0])),
+    static_assert ((bool)(VLC_MAX_MUTEX == (sizeof (locks) / sizeof (locks[0]))),
                    "Wrong number of global mutexes");
     assert (n < (sizeof (locks) / sizeof (locks[0])));
 
@@ -104,8 +104,10 @@ static inline atomic_uint *vlc_cond_value(vlc_cond_t *cond)
     /* XXX: ugly but avoids including vlc_atomic.h in vlc_threads.h */
     static_assert (sizeof (cond->value) <= sizeof (atomic_uint),
                    "Size mismatch!");
+#ifndef _MSC_VER
     static_assert ((alignof (cond->value) % alignof (atomic_uint)) == 0,
                    "Alignment mismatch");
+#endif
     return (atomic_uint *)&cond->value;
 }
 
