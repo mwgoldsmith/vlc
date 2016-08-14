@@ -35,10 +35,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\android\dirs.c" />
-    <ClCompile Include="..\..\src\android\error.c" />
-    <ClCompile Include="..\..\src\android\netconf.c" />
-    <ClCompile Include="..\..\src\android\thread.c" />
     <ClCompile Include="..\..\src\audio_output\common.c" />
     <ClCompile Include="..\..\src\audio_output\dec.c" />
     <ClCompile Include="..\..\src\audio_output\filters.c" />
@@ -87,7 +83,6 @@
     <ClCompile Include="..\..\src\input\resource.c" />
     <ClCompile Include="..\..\src\input\stats.c" />
     <ClCompile Include="..\..\src\input\stream.c" />
-    <ClCompile Include="..\..\src\input\stream_demux.c" />
     <ClCompile Include="..\..\src\input\stream_filter.c" />
     <ClCompile Include="..\..\src\input\stream_memory.c" />
     <ClCompile Include="..\..\src\input\subtitles.c" />
@@ -116,12 +111,25 @@
     <ClCompile Include="..\..\src\misc\es_format.c" />
     <ClCompile Include="..\..\src\misc\events.c" />
     <ClCompile Include="..\..\src\misc\exit.c" />
+    <ClCompile Include="..\..\src\misc\fifo.c" />
     <ClCompile Include="..\..\src\misc\filter.c" />
     <ClCompile Include="..\..\src\misc\filter_chain.c" />
     <ClCompile Include="..\..\src\misc\fingerprinter.c" />
     <ClCompile Include="..\..\src\misc\fourcc.c" />
+    <ClCompile Include="..\..\src\misc\httpcookies.c" />
     <ClCompile Include="..\..\src\misc\image.c" />
-    <ClCompile Include="..\..\src\misc\md5.c" />
+    <ClCompile Include="..\..\src\misc\interrupt.c" />
+    <ClCompile Include="..\..\src\misc\keystore.c" />
+    <ClCompile Include="..\..\src\misc\md5.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='ReleaseDLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='DebugDLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='ReleaseDLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='DebugDLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+    </ClCompile>
     <ClCompile Include="..\..\src\misc\messages.c" />
     <ClCompile Include="..\..\src\misc\mime.c" />
     <ClCompile Include="..\..\src\misc\mtime.c" />
@@ -218,19 +226,10 @@
       <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
     </ClCompile>
     <ClCompile Include="..\..\src\playlist\tree.c" />
-    <ClCompile Include="..\..\src\stream_output\announce.c" />
+    <ClCompile Include="..\..\src\revision.c" />
     <ClCompile Include="..\..\src\stream_output\sap.c" />
     <ClCompile Include="..\..\src\stream_output\sdp.c" />
     <ClCompile Include="..\..\src\stream_output\stream_output.c" />
-    <ClCompile Include="..\..\src\test\block_test.c" />
-    <ClCompile Include="..\..\src\test\dictionary.c" />
-    <ClCompile Include="..\..\src\test\headers.c" />
-    <ClCompile Include="..\..\src\test\i18n_atof.c" />
-    <ClCompile Include="..\..\src\test\md5.c" />
-    <ClCompile Include="..\..\src\test\timer.c" />
-    <ClCompile Include="..\..\src\test\url.c" />
-    <ClCompile Include="..\..\src\test\utf8.c" />
-    <ClCompile Include="..\..\src\test\xmlent.c" />
     <ClCompile Include="..\..\src\text\charset.c" />
     <ClCompile Include="..\..\src\text\filesystem.c">
       <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
@@ -245,7 +244,16 @@
     <ClCompile Include="..\..\src\text\iso_lang.c" />
     <ClCompile Include="..\..\src\text\strings.c" />
     <ClCompile Include="..\..\src\text\unicode.c" />
-    <ClCompile Include="..\..\src\text\url.c" />
+    <ClCompile Include="..\..\src\text\url.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='ReleaseDLL|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='DebugDLL|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='ReleaseDLL|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='DebugDLL|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+    </ClCompile>
     <ClCompile Include="..\..\src\version.c" />
     <ClCompile Include="..\..\src\video_output\control.c">
       <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)%(Filename)3.obj</ObjectFileName>
@@ -317,6 +325,7 @@
     <ClCompile Include="..\..\src\win32\winsock.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\build\tools\include\compat.h" />
     <ClInclude Include="..\..\src\audio_output\aout_internal.h" />
     <ClInclude Include="..\..\src\config\configuration.h" />
     <ClInclude Include="..\..\src\config\vlc_getopt.h" />
@@ -336,6 +345,7 @@
     <ClInclude Include="..\..\src\input\vlm_event.h" />
     <ClInclude Include="..\..\src\input\vlm_internal.h" />
     <ClInclude Include="..\..\src\libvlc.h" />
+    <ClInclude Include="..\..\src\misc\interrupt.h" />
     <ClInclude Include="..\..\src\misc\subpicture.h" />
     <ClInclude Include="..\..\src\misc\update.h" />
     <ClInclude Include="..\..\src\misc\variables.h" />
@@ -508,7 +518,8 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>HAVE_CONFIG_H;MODULE_STRING="core";__i386__;WIN32;_WINDOWS;_DEBUG;DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)..\..\include;$(ProjectDir)..\..\src;$(OutDir)..\..\..\tools\include;$(ProjectDir)..\..\win32\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)..\..\include;$(ProjectDir)..\..\src;$(OutDir)..\..\..\tools\include;$(OutDir)..\..\..\include\gettext;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
     </ClCompile>
     <Lib>
       <SubSystem>Windows</SubSystem>
@@ -525,10 +536,14 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>HAVE_CONFIG_H;MODULE_STRING="core";__i386__;WIN32;_WINDOWS;_DEBUG;DEBUG;_USRDLL;LIBVLCCORE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)..\..\include;$(ProjectDir)..\..\src;$(OutDir)..\..\..\tools\include;$(ProjectDir)..\..\win32\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)..\..\include;$(ProjectDir)..\..\src;$(OutDir)..\..\..\tools\include;$(OutDir)..\..\..\include\gettext;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
+      <ImportLibrary>$(OutDir)..\lib\$(TargetName).lib</ImportLibrary>
+      <AdditionalDependencies>intl.lib;compat.lib;winmm.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OutDir)..\lib\</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -536,7 +551,8 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>HAVE_CONFIG_H;MODULE_STRING="core";__x86_64__;WIN32;_WINDOWS;_DEBUG;DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)..\..\include;$(ProjectDir)..\..\src;$(OutDir)..\..\..\tools\include;$(ProjectDir)..\..\win32\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)..\..\include;$(ProjectDir)..\..\src;$(OutDir)..\..\..\tools\include;$(OutDir)..\..\..\include\gettext;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
     </ClCompile>
     <Lib>
       <SubSystem>Windows</SubSystem>
@@ -553,10 +569,14 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>HAVE_CONFIG_H;MODULE_STRING="core";__x86_64__;WIN32;_WINDOWS;_DEBUG;DEBUG;_USRDLL;LIBVLCCORE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)..\..\include;$(ProjectDir)..\..\src;$(OutDir)..\..\..\tools\include;$(ProjectDir)..\..\win32\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)..\..\include;$(ProjectDir)..\..\src;$(OutDir)..\..\..\tools\include;$(OutDir)..\..\..\include\gettext;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
+      <ImportLibrary>$(OutDir)..\lib\$(TargetName).lib</ImportLibrary>
+      <AdditionalDependencies>intl.lib;compat.lib;winmm.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OutDir)..\lib\</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -566,7 +586,8 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>HAVE_CONFIG_H;MODULE_STRING="core";__i386__;WIN32;_WINDOWS;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)..\..\include;$(ProjectDir)..\..\src;$(OutDir)..\..\..\tools\include;$(ProjectDir)..\..\win32\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)..\..\include;$(ProjectDir)..\..\src;$(OutDir)..\..\..\tools\include;$(OutDir)..\..\..\include\gettext;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
     </ClCompile>
     <Lib>
       <SubSystem>Windows</SubSystem>
@@ -585,12 +606,16 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>HAVE_CONFIG_H;MODULE_STRING="core";__i386__;WIN32;_WINDOWS;NDEBUG;_USRDLL;LIBVLCCORE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)..\..\include;$(ProjectDir)..\..\src;$(OutDir)..\..\..\tools\include;$(ProjectDir)..\..\win32\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)..\..\include;$(ProjectDir)..\..\src;$(OutDir)..\..\..\tools\include;$(OutDir)..\..\..\include\gettext;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <ImportLibrary>$(OutDir)..\lib\$(TargetName).lib</ImportLibrary>
+      <AdditionalDependencies>intl.lib;compat.lib;normaliz.lib;winmm.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OutDir)..\lib\</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -600,7 +625,8 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>HAVE_CONFIG_H;MODULE_STRING="core";__x86_64__;WIN32;_WINDOWS;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)..\..\include;$(ProjectDir)..\..\src;$(OutDir)..\..\..\tools\include;$(ProjectDir)..\..\win32\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)..\..\include;$(ProjectDir)..\..\src;$(OutDir)..\..\..\tools\include;$(OutDir)..\..\..\include\gettext;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
     </ClCompile>
     <Lib>
       <SubSystem>Windows</SubSystem>
@@ -619,12 +645,16 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>HAVE_CONFIG_H;MODULE_STRING="core";__x86_64__;WIN32;_WINDOWS;NDEBUG;_USRDLL;LIBVLCCORE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)..\..\include;$(ProjectDir)..\..\src;$(OutDir)..\..\..\tools\include;$(ProjectDir)..\..\win32\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)..\..\include;$(ProjectDir)..\..\src;$(OutDir)..\..\..\tools\include;$(OutDir)..\..\..\include\gettext;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <ImportLibrary>$(OutDir)..\lib\$(TargetName).lib</ImportLibrary>
+      <AdditionalLibraryDirectories>$(OutDir)..\lib\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>intl.lib;compat.lib;normaliz.lib;winmm.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

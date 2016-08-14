@@ -34,9 +34,6 @@
     <Filter Include="Source Files\video_output">
       <UniqueIdentifier>{0e9a4b34-0f59-47bd-81d5-52315f37f4f1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\test">
-      <UniqueIdentifier>{104565e7-4d42-4bac-99ae-c18dcc9405bb}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\text">
       <UniqueIdentifier>{29c26357-aa22-4842-9b45-32a49c8dea44}</UniqueIdentifier>
     </Filter>
@@ -54,9 +51,6 @@
     </Filter>
     <Filter Include="Source Files\network">
       <UniqueIdentifier>{04f0e16c-28d5-43d1-9ee1-7b0379f38f57}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\android">
-      <UniqueIdentifier>{3a2b9746-e880-4d1e-8f21-4d5eb91c3ce1}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\audio_output">
       <UniqueIdentifier>{5fdfe094-a89c-4e98-a3e7-bcfcf182f9b5}</UniqueIdentifier>
@@ -114,18 +108,6 @@
     <ClCompile Include="..\..\src\win32\winsock.c">
       <Filter>Source Files\win32</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\android\netconf.c">
-      <Filter>Source Files\android</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\android\thread.c">
-      <Filter>Source Files\android</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\android\dirs.c">
-      <Filter>Source Files\android</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\android\error.c">
-      <Filter>Source Files\android</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\audio_output\dec.c">
       <Filter>Source Files\audio_output</Filter>
     </ClCompile>
@@ -178,9 +160,6 @@
       <Filter>Source Files\input</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\input\stream.c">
-      <Filter>Source Files\input</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\input\stream_demux.c">
       <Filter>Source Files\input</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\input\stream_filter.c">
@@ -420,36 +399,6 @@
     <ClCompile Include="..\..\src\stream_output\stream_output.c">
       <Filter>Source Files\stream_output</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\stream_output\announce.c">
-      <Filter>Source Files\stream_output</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\test\headers.c">
-      <Filter>Source Files\test</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\test\i18n_atof.c">
-      <Filter>Source Files\test</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\test\md5.c">
-      <Filter>Source Files\test</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\test\timer.c">
-      <Filter>Source Files\test</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\test\url.c">
-      <Filter>Source Files\test</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\test\utf8.c">
-      <Filter>Source Files\test</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\test\xmlent.c">
-      <Filter>Source Files\test</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\test\block_test.c">
-      <Filter>Source Files\test</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\test\dictionary.c">
-      <Filter>Source Files\test</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\text\filesystem.c">
       <Filter>Source Files\text</Filter>
     </ClCompile>
@@ -520,6 +469,21 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\libvlc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\misc\interrupt.c">
+      <Filter>Source Files\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\misc\fifo.c">
+      <Filter>Source Files\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\misc\httpcookies.c">
+      <Filter>Source Files\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\misc\keystore.c">
+      <Filter>Source Files\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\revision.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -643,6 +607,12 @@
     </ClInclude>
     <ClInclude Include="config.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\build\tools\include\compat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\misc\interrupt.h">
+      <Filter>Header Files\misc</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
