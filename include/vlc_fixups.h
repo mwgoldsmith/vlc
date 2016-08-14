@@ -124,6 +124,22 @@ typedef struct
     !defined (HAVE_GETPID)   || \
     !defined (HAVE_SWAB)
 # include <sys/types.h> /* ssize_t, pid_t */
+
+#ifndef ssize_t
+#include <BaseTsd.h>
+typedef SSIZE_T ssize_t;
+#endif /* Not ssize_t */
+
+
+#ifndef _PID_T_
+#define	_PID_T_
+typedef int	_pid_t;
+
+#ifndef	_NO_OLDNAMES
+typedef _pid_t	pid_t;
+#endif
+#endif	/* Not _PID_T_ */
+
 #endif
 
 #if !defined (HAVE_DIRFD) || \

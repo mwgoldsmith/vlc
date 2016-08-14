@@ -15,29 +15,7 @@
 #    define inline          __inline
 #  endif
 
-#ifndef _MODE_T_
-#define	_MODE_T_
-typedef unsigned short _mode_t;
-
-#ifndef	_NO_OLDNAMES
-typedef _mode_t	mode_t;
-#endif
-#endif	/* Not _MODE_T_ */
-
-#ifndef _PID_T_
-#define	_PID_T_
-typedef int	_pid_t;
-
-#ifndef	_NO_OLDNAMES
-typedef _pid_t	pid_t;
-#endif
-#endif	/* Not _PID_T_ */
-
-#endif /* _MSC_VER */
-
-#ifndef ssize_t
-#  define SSIZE_T ssize_t
-#endif
+#endif  /* _MSC_VER */
 
 #ifndef SSIZE_MAX
 # ifdef _WIN64
@@ -49,12 +27,6 @@ typedef _pid_t	pid_t;
 
 typedef int        BOOL;
 typedef int        WINBOOL;
-
-#define R_OK      04
-
-#define STDIN_FILENO   fileno(stdin)
-#define STDOUT_FILENO  fileno(stdout)
-#define STDERR_FILENO  fileno(stderr)
 
 #define M_PI        3.14159265358979323846
 #define M_PI_2      1.57079632679489661923
