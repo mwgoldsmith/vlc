@@ -301,6 +301,10 @@
 #  define strdup               _strdup
 #  define swab                 _swab
 #  define getpid               _getpid
+#  define setmode              _setmode
+#  define dup                  _dup
+#  define write                _write
+#  define close                _close
 #endif
 
 
