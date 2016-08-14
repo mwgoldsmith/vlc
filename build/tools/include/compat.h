@@ -15,6 +15,15 @@
 #    define inline          __inline
 #  endif
 
+#ifndef _MODE_T_
+#define	_MODE_T_
+typedef unsigned short _mode_t;
+
+#ifndef	_NO_OLDNAMES
+typedef _mode_t	mode_t;
+#endif  /* Not _NO_OLDNAMES */
+#endif	/* Not _MODE_T_ */
+
 #endif  /* _MSC_VER */
 
 #ifndef SSIZE_MAX
