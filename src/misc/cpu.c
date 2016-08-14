@@ -94,20 +94,26 @@ static bool vlc_CPU_check (const char *name, void (*func) (void))
 #if defined (CAN_COMPILE_SSE) && !defined (__SSE__)
 VLC_SSE static void SSE_test (void)
 {
+#if defined(HAVE_INLINE_ASM)
     asm volatile ("xorps %%xmm0,%%xmm0\n" : : : "xmm0", "xmm1");
+#endif /* HAVE_INLINE_ASM */
 }
 #endif
 #if defined (CAN_COMPILE_3DNOW)
 VLC_MMX static void ThreeD_Now_test (void)
 {
+#if defined(HAVE_INLINE_ASM)
     asm volatile ("pfadd %%mm0,%%mm0\n" "femms\n" : : : "mm0");
+#endif /* HAVE_INLINE_ASM */
 }
 #endif
 
 #if defined (CAN_COMPILE_ALTIVEC)
 static void Altivec_test (void)
 {
+#if defined(HAVE_INLINE_ASM)
     asm volatile ("mtspr 256, %0\n" "vand %%v0, %%v0, %%v0\n" : : "r" (-1));
+#endif /* HAVE_INLINE_ASM */
 }
 #endif
 
@@ -124,6 +130,7 @@ void vlc_CPU_init (void)
 {
     uint32_t i_capabilities = 0;
 
+#if defined(HAVE_INLINE_ASM)
 #if defined( __i386__ ) || defined( __x86_64__ )
      unsigned int i_eax, i_ebx, i_ecx, i_edx;
      bool b_amd;
@@ -149,6 +156,7 @@ void vlc_CPU_init (void)
   && !defined (__i686__) && !defined (__pentium4__) \
   && !defined (__k6__) && !defined (__athlon__) && !defined (__k8__)
     /* check if cpuid instruction is supported */
+
     asm volatile ( "push %%ebx\n\t"
                    "pushf\n\t"
                    "pop %%eax\n\t"
@@ -168,7 +176,6 @@ void vlc_CPU_init (void)
     if( i_eax == i_ebx )
         goto out;
 # endif
-
     /* the CPU supports the CPUID instruction - get its level */
     cpuid( 0x00000000 );
 
@@ -258,7 +265,7 @@ out:
 # endif
 
 #endif
-
+#endif /* HAVE_INLINE_ASM */
     cpu_flags = i_capabilities;
 }
 
