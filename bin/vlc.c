@@ -157,7 +157,7 @@ int main( int i_argc, const char *ppsz_argv[] )
         /* This message clutters error logs. It is printed only on a TTY.
          * Fortunately, LibVLC prints version info with -vv anyway. */
         fprintf (stderr, "VLC media player %s (revision %s)\n",
-                 libvlc_get_version(), libvlc_get_changeset());
+                 libvlc_get_version(), psz_vlc_changeset);
 
     sigset_t set;
 
