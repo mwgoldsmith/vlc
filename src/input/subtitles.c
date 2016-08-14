@@ -284,9 +284,9 @@ int subtitles_Detect( input_thread_t *p_this, char *psz_path, const char *psz_na
             if( psz_name[0] == '.' || !subtitles_Filter( psz_name ) )
                 continue;
 
-            char tmp_fname_noext[strlen( psz_name ) + 1];
-            char tmp_fname_trim[strlen( psz_name ) + 1];
-            char tmp_fname_ext[strlen( psz_name ) + 1];
+            char *tmp_fname_noext = (char *)malloc(strlen(psz_name) + 1);	
+            char *tmp_fname_trim = (char *)malloc(strlen(psz_name) + 1);
+            char *tmp_fname_ext = (char *)malloc(strlen(psz_name) + 1);
             const char *tmp;
             int i_prio = 0;
 
@@ -326,17 +326,25 @@ int subtitles_Detect( input_thread_t *p_this, char *psz_path, const char *psz_na
                 struct stat st;
                 char *path;
 
-                size_t i_len = strlen( psz_dir );
+                size_t i_len = strlen(psz_dir);
                 const char *psz_format;
-                if ( i_len == 0 )
-                    continue;
-                if( psz_dir[i_len - 1] == DIR_SEP_CHAR )
-                    psz_format = "%s%s";
+                if(i_len == 0) {
+                  free(tmp_fname_noext);
+                  free(tmp_fname_trim);
+                  free(tmp_fname_ext);
+                  continue;
+                }
+                if(psz_dir[i_len - 1] == DIR_SEP_CHAR)
+                  psz_format = "%s%s";
                 else
-                    psz_format = "%s"DIR_SEP"%s";
+                  psz_format = "%s"DIR_SEP"%s";
 
-                if( asprintf( &path, psz_format, psz_dir, psz_name ) < 0 )
-                    continue;
+                if(asprintf(&path, psz_format, psz_dir, psz_name) < 0) {
+                  free(tmp_fname_noext);
+                  free(tmp_fname_trim);
+                  free(tmp_fname_ext);
+                  continue;
+                }
 
                 if( strcmp( path, psz_fname )
                  && vlc_stat( path, &st ) == 0
@@ -358,6 +366,10 @@ int subtitles_Detect( input_thread_t *p_this, char *psz_path, const char *psz_na
                 }
                 free( path );
             }
+
+            free(tmp_fname_noext);
+            free(tmp_fname_trim);
+            free(tmp_fname_ext);
         }
         closedir( dir );
     }
