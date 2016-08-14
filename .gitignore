@@ -53,3 +53,11 @@ install-*
 .vs/
 *.opendb
 *.db
+*.idb
+*.ipdb
+*.tlog
+*.iobj
+*.obj
+*.bsc
+*.exp
+*.res
