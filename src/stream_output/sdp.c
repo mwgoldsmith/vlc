@@ -267,7 +267,8 @@ char *vlc_sdp_Start (vlc_object_t *obj, const char *cfgpref,
     if (cfglen > 100)
         return NULL;
 
-    char varname[cfglen + sizeof ("description")], *subvar = varname + cfglen;
+    char *varname = (char *)malloc(cfglen + sizeof("description")),
+         *subvar = varname + cfglen;
     strcpy (varname, cfgpref);
 
     strcpy (subvar, "name");
@@ -289,8 +290,10 @@ char *vlc_sdp_Start (vlc_object_t *obj, const char *cfgpref,
     free (email);
     free (phone);
 
-    if (sdp == NULL)
-        return NULL;
+    if(sdp == NULL) {
+      free(varname);
+      return NULL;
+    }
 
     strcpy (subvar, "cat");
     char *cat = var_GetNonEmptyString (obj, varname);
@@ -302,5 +305,6 @@ char *vlc_sdp_Start (vlc_object_t *obj, const char *cfgpref,
         free (cat);
     }
 
+    free(varname);
     return sdp;
 }
