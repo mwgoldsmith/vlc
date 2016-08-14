@@ -272,6 +272,7 @@ COMPAT_API pid_t getpid (void) VLC_NOTHROW;
 
 #ifndef HAVE_FSYNC
 COMPAT_API int fsync (int fd);
+#define fdatasync fsync
 #endif
 
 /* dirent.h */
